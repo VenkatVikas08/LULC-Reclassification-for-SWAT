@@ -67,7 +67,7 @@ count4 = sum(logicalIndices4(:));
                         col = colIndices(selectedIndices(i));
                         s(row, col) = replacementValues(1, j);
                     end
-                      elseif count4 >= (n(1, j) - count1 - count2-count3)
+                      elseif count4 >= (n(fileIdx, j) - count1 - count2-count3)
                     disp('count4 is more')
                     s(s == searchValue3) = replacementValues(1, j);
                     [rowIndices, colIndices] = find(s == searchValue4);
@@ -75,7 +75,7 @@ count4 = sum(logicalIndices4(:));
                     y = round(n(1, j) - count1 - count2-count3);
                     selectedIndices = randperm(x, y);
 
-                    for i = 1:(n(1, j) - count1 - count2-count3)
+                    for i = 1:(n(fileIdx, j) - count1 - count2-count3)
                         row = rowIndices(selectedIndices(i));
                         col = colIndices(selectedIndices(i));
                         s(row, col) = replacementValues(1, j);
@@ -85,10 +85,10 @@ count4 = sum(logicalIndices4(:));
                     s(conditions) = replacementValues(1, j);
                     [rowIndices, colIndices] = find(s == searchValue5);
                     x = length(rowIndices);
-                    y = round(n(1, j) - count1 - count2 - count3 - count4);
+                    y = round(n(fileIdx, j) - count1 - count2 - count3 - count4);
                     selectedIndices = randperm(x, y);
 
-                    for i = 1:(n(1, j) - count1 - count2 - count3 - count4)
+                    for i = 1:(n(fileIdx, j) - count1 - count2 - count3 - count4)
                         row = rowIndices(selectedIndices(i));
                         col = colIndices(selectedIndices(i));
                         s(row, col) = replacementValues(1, j);
@@ -105,4 +105,5 @@ end
 
     sprintf('Classification Completed for %s\n',baseFileName)
 end
+
 result='reclassification of water intensive crops is completed';
